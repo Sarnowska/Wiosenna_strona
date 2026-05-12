@@ -1,0 +1,88 @@
+:root {
+    --bg-color: #f7ede2;
+    --summer: #a3d35f;
+    --autumn: #f9d978;
+    --winter: #a5d8eb;
+    --spring: #f6b5c5;
+}
+
+body {
+    background-color: var(--bg-color);
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*kontener na kafelki i gałąź*/
+.art-container {
+    position: relative;
+    display: flex;
+    gap: 15px;
+    padding: 40px;
+}
+
+.panel {
+    width: 90px;
+    height: 220px;
+    border-radius: 6px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    
+}
+
+.panel.summer {background-color: var(--summer);}
+.panel.autumn {background-color: var(--autumn);}
+.panel.winter {background-color: var(--winter);}
+.panel.spring {background-color: var(--spring);}
+
+/*Gałąź plus animacja*/
+.branch-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    pointer-events: none;
+    filter: drop-shadow(0 15px 15px rgba(0,0,0,0.15));
+    animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%{
+        transform: translate(-50%, -50%) translateY(0) rotate(0deg);
+     }
+    50%{
+        transform: translate(-50%,-50%) translateY(-12px) rotate(0.5deg);
+    }
+    100%{
+        transform: translate(-50%, -50%) translateY(0) rotate(0deg);
+    }
+}
+
+.quote-box {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.quote-text {
+    font-size: 1.3rem;
+    color: #4a4a4a;
+    font-weight: 300;
+    letter-spacing: 0.8px;
+    font-style: italic;
+}
+
+.quote-text::before, .quote-text::after{
+    content: '"';
+    color: var(--spring);
+    font-size: 1.8rem;
+    font-weight: bold;
+}
